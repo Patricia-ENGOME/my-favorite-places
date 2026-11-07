@@ -25,6 +25,6 @@ WORKDIR /app
 COPY --from=builder /app/dist ./dist
 COPY package.json ./
 
-RUN npm install --omit=dev
+RUN npm install --omit=dev && npm cache clean --force
 
 CMD ["node", "dist/index.js"]
